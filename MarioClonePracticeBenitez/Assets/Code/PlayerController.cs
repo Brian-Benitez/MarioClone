@@ -7,10 +7,13 @@ public class PlayerController : MonoBehaviour
     //TO: Make player movement, jump and have a collider.
 
     private float Horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 16f;
+
     private bool isFacingRight = true;
 
+
+
+    [SerializeField] float jumpingPower = 16f;
+    [SerializeField] float speed = 8f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform GroundCheck;
     [SerializeField] private LayerMask GroundLayer;
@@ -35,7 +38,14 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(Horizontal * speed, rb.velocity.y);
+        Vector2 dir = new Vector2(Horizontal * speed, rb.velocity.y);
+
+        rb.AddForce(dir, ForceMode2D.Force);
+
+        Vector2 curVel = rb.velocity;
+        curVel.x = Mathf.Clamp(curVel.x, -7, 7);
+
+        rb.velocity = curVel;
     }
 
     private bool IsGrounded()
