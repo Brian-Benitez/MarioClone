@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //TO: Make player movement, jump and have a collider.
-
     private float Horizontal;
 
     private bool isFacingRight = true;
-
-
 
     [SerializeField] float jumpingPower = 16f;
     [SerializeField] float speed = 8f;
@@ -18,7 +14,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform GroundCheck;
     [SerializeField] private LayerMask GroundLayer;
 
-    //I wanna make some of the vars public so when I use power ups, they will be accessable and changed.
     private void Update()
     {
         Horizontal = Input.GetAxisRaw("Horizontal");
