@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Transform")]
+    public Transform SpawnPoint;
+
     private float Horizontal;
 
     private bool isFacingRight = true;
-
+    [Header("Player Movement")]
     [SerializeField] float jumpingPower = 16f;
     [SerializeField] float speed = 8f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform GroundCheck;
     [SerializeField] private LayerMask GroundLayer;
+
+    private void Start()
+    {
+        GetComponent<OutOfBoundsController>().OutOfBoundEvent = () => this.transform.position = SpawnPoint.transform.position;
+        //Lol i hope I wrote this right
+    }
 
     private void Update()
     {

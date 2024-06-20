@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class OutOfBoundsController : MonoBehaviour
 {
-    public Transform SpawnPoint;
-    public Transform PlayerTransform;
+    //This is scalable now
+    public System.Action OutOfBoundEvent;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "OutOfBounds")
-        {
-            Debug.Log("out of bounds");
-            PlayerTransform.transform.position = SpawnPoint.transform.position;
-        }
+        if (collision.gameObject.tag != "OutOfBounds")
+            return;
+
+        OutOfBoundEvent?.Invoke();
     }
 }

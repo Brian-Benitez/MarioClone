@@ -1091,7 +1091,6 @@ GameObject:
   - component: {fileID: 1346971730}
   - component: {fileID: 1346971732}
   - component: {fileID: 1346971731}
-  - component: {fileID: 1346971733}
   m_Layer: 0
   m_Name: Ground (1)
   m_TagString: OutOfBounds
@@ -1192,20 +1191,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1346971733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1346971729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6795bebf923bdc5479d4151d38feba39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnPoint: {fileID: 390507035}
-  PlayerTransform: {fileID: 1457094992}
 --- !u!1 &1457094991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,6 +1292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585055d4d7783b440a97feb527047497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnPoint: {fileID: 390507035}
   jumpingPower: 16
   speed: 250
   rb: {fileID: 1457094997}
@@ -1373,8 +1359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6795bebf923bdc5479d4151d38feba39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPoint: {fileID: 390507035}
-  PlayerTransform: {fileID: 1457094992}
 --- !u!1 &1712740488
 GameObject:
   m_ObjectHideFlags: 0
