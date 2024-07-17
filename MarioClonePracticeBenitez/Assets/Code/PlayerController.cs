@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isFacingRight = true;
     [Header("Player Movement")]
-    [SerializeField] float jumpingPower = 16f;
+    [SerializeField] public float jumpingPower = 16f;
     [SerializeField] float speed = 8f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform GroundCheck;
@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         GetComponent<OutOfBoundsController>().OutOfBoundEvent = () => this.transform.position = SpawnPoint.transform.position;
-        //Lol i hope I wrote this right
     }
 
     private void Update()
