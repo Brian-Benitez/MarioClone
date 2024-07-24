@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
         KillEnemy();
     }
 
-    public void KillEnemy()
+    private void KillEnemy()
     {
         Debug.Log("Enemy Heath is " + EnemyHealth);
         if(EnemyHealth <= 0)

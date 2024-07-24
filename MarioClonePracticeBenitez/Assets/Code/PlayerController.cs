@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Info")]
+    public int PlayersLives = 3;
+
     [Header("Transform")]
     public Transform SpawnPoint;
 
@@ -20,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         GetComponent<OutOfBoundsController>().OutOfBoundEvent = () => this.transform.position = SpawnPoint.transform.position;
+        GetComponent<OutOfBoundsController>().OutOfBoundEvent += CheckOnPlayersHealth;
     }
 
     private void Update()
@@ -65,5 +69,13 @@ public class PlayerController : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    private void CheckOnPlayersHealth()
+    {
+        if(PlayersLives <= 0)
+            this.gameObject.SetActive(false);
+        return;
+
     }
 }
