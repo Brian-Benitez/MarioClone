@@ -6,18 +6,11 @@ public class EnemyController : MonoBehaviour
 {
     public int EnemyHealth = 3;
   
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (!collision.gameObject.CompareTag("Player"))
-            return;
-        EnemyHealth--;
-        KillEnemy();
-    }
-
-    private void KillEnemy()
+    public void CheckEnemyHealth()
     {
         Debug.Log("Enemy Heath is " + EnemyHealth);
         if(EnemyHealth <= 0)
             this.gameObject.SetActive(false);
+        return;
     }
 }
