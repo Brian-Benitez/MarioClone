@@ -1892,6 +1892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585055d4d7783b440a97feb527047497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayersLives: 3
   SpawnPoint: {fileID: 390507035}
   jumpingPower: 16
   speed: 250
@@ -2337,9 +2338,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1990872061}
+  - component: {fileID: 1990872062}
   - component: {fileID: 1990872060}
   - component: {fileID: 1990872059}
-  - component: {fileID: 1990872062}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -2452,4 +2453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 934aea227cfb9764297465953bbf1135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Target: {fileID: 1457094992}
   EnemyHealth: 3
+  EnemySpeed: 1
