@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        //EnemyMovement();
+        EnemyMovement();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

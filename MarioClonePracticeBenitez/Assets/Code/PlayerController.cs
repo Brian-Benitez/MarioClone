@@ -1,3 +1,4 @@
+using DG.Tweening;
 using interfaces;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,13 +26,6 @@ public class PlayerController : MonoBehaviour
     {
         GetComponent<OutOfBoundsController>().OutOfBoundEvent = () => this.transform.position = SpawnPoint.transform.position;
         GetComponent<OutOfBoundsController>().OutOfBoundEvent += CheckOnPlayersHealth;
-    }
-    //When the player hits a box, see if it has the component of power up, if you do play the function.
-    private void OnCollisonEnter2D(Collider2D collision)
-    {
-        Debug.Log("hahaha");
-        if (collision.gameObject.TryGetComponent<IPowerUp>(out IPowerUp powerUp))
-            powerUp.PowerUp();//Need to test this
     }
 
     private void Update()
