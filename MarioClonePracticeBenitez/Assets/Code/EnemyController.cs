@@ -12,22 +12,22 @@ public class EnemyController : MonoBehaviour
 
     public GameObject PointA;
     public GameObject PointB;
-    private Transform _currentaPoint;
+    private Transform _currentPoint;
 
     public Rigidbody2D Rigidbody;
     //Add more enums if needed
-    public enum EnemyBehaviour {RunLeft, RunRight, JumpUp, PatrolLeftAndRight};
+    public enum EnemyBehaviour {RunLeft, RunRight, JumpUp, PatrolPath};
 
     public EnemyBehaviour EnemyMovementType;
 
     private void Start()
     {
-        _currentaPoint = PointB.transform;
+        _currentPoint = PointB.transform;
     }
 
     private void Update()
     {
-        Vector2 point = _currentaPoint.position - transform.position;
+        Vector2 point = _currentPoint.position - transform.position;
         EnemyMovement();
     }
 
@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
     /// Determines what type of movement the enemy does.
     /// </summary>
     private void EnemyMovement()
-    {
+    {//keep this here
         if (EnemyMovementType == EnemyBehaviour.RunLeft)
         {
             Debug.Log("Make enemy move to the left.");
@@ -61,18 +61,19 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log("Make enemy run right.");
             Rigidbody.velocity = new Vector2(EnemySpeed, 0);
-        }
-        else if(EnemyMovementType == EnemyBehaviour.PatrolLeftAndRight)
+        }//Move this below to a new script
+        else if(EnemyMovementType == EnemyBehaviour.PatrolPath)
         {
-            if (_currentaPoint == PointB.transform)
+            if (_currentPoint == PointB.transform)
                 Rigidbody.velocity = new Vector2(EnemySpeed, 0);
+            else
             Rigidbody.velocity = new Vector2(-EnemySpeed, 0);
 
-            if (Vector2.Distance(transform.position, _currentaPoint.position) < 0.5f && _currentaPoint == PointB.transform)
-                _currentaPoint = PointA.transform;
+            if (Vector2.Distance(transform.position, _currentPoint.position) < 0.5f)
+                _currentPoint = PointA.transform;
 
-            if (Vector2.Distance(transform.position, _currentaPoint.position) < 0.5f && _currentaPoint == PointA.transform)
-                _currentaPoint = PointB.transform;
+            if (Vector2.Distance(transform.position, _currentPoint.position) < 0.5f)
+                _currentPoint = PointB.transform;
         }
         //Drawing some gizmos would be helpful for the points...
     }
